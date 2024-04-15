@@ -16,3 +16,21 @@
 - Diagnostic
 - Error Handling
 - Tree Shaking - Remove unused code 
+
+
+# EatsEase
+
+* Header
+* - Logo
+* - Nav Items
+* Body
+* - Search
+* - RestaurantContainer
+* - RestaurantCard
+*   - Img
+*   - Name of Res, Star Rating, cuisine, delery tie
+* Footer
+*   - Copyright
+*   - Links
+*   - Address
+*   - Contact */
