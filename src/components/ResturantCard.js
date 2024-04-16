@@ -15,4 +15,5 @@ const ResturantCard = ({resdata}) =>{
   )
 }
 
+
 export default ResturantCard;
