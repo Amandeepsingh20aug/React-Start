@@ -3,13 +3,34 @@ import ResturantCard from "./ResturantCard";
 import Shimmer from './Shimmer';
 
 const Body = () => {
+
+  //Original Listof Restaurants
   const [listofRestaurants, setListOfRestaurants] = useState([]);
+
+  //Input change text
+  const [searchText,setSearchText] = useState('');
+
+  //Search Resturants
+  const [searchfilterData, setSearchfilterData] = useState([]);
+
+  // console.log('Render Body');
   
   const handlefilter = () => {
     const filteredData = listofRestaurants.filter((item) => {
-      return item.info.avgRating > 4.5
+      return item.info.avgRating > 3.5
     });
-    setListOfRestaurants(filteredData);
+    setSearchfilterData(filteredData);
+  }
+
+  const handleSearch = () =>{
+    const searchfilter = listofRestaurants.filter((item)=>(
+      item.info.name.toLowerCase().includes(searchText.toLowerCase())
+    ));
+    setSearchfilterData(searchfilter);
+  }
+
+  const handleChange = (event) =>{
+   setSearchText(event.target.value);
   }
 
   useEffect(()=>{
@@ -21,8 +42,10 @@ const Body = () => {
 
     const json = await data.json();
 
-    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.
+    setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.
       infoWithStyle?.restaurants); 
+    setSearchfilterData(json?.data?.cards[4]?.card?.card?.gridElements?.
+      infoWithStyle?.restaurants)
   }
 
   if(listofRestaurants.length == 0) {
@@ -37,11 +60,15 @@ const Body = () => {
     <>
       <div className="body">
         <div className="filter">
+        <div className='search'>
+            <input type='text' className='search-box' value={searchText} onChange={handleChange}/>
+            <button onClick={()=>handleSearch()}>Search</button>
+        </div>
           <button className="filter-btn" onClick={() => handlefilter()}>Top Rated Restaurant</button>
         </div>
         <div className="res-container">
           {
-            listofRestaurants.map((item) => (
+            searchfilterData.map((item) => (
               <ResturantCard resdata={item} key={item.info.id} />
             ))
           }
