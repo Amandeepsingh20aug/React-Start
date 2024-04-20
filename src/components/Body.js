@@ -4,16 +4,15 @@ import Shimmer from './Shimmer';
 
 const Body = () => {
 
-  //Original Listof Restaurants
+  
   const [listofRestaurants, setListOfRestaurants] = useState([]);
 
-  //Input change text
+  
   const [searchText,setSearchText] = useState('');
 
-  //Search Resturants
+  
   const [searchfilterData, setSearchfilterData] = useState([]);
 
-  // console.log('Render Body');
   
   const handlefilter = () => {
     const filteredData = listofRestaurants.filter((item) => {
