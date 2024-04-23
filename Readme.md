@@ -47,3 +47,7 @@ export const Component; import {Component} from "path";
 (Normal JS utility functions)
 - useState()
 - useEffect()
+
+# 2 types of Routing in web apps
+- Client side Routing
+- Server side Routing
