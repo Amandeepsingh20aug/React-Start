@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 const Header = () =>{
   const[logged,setLogged] = useState(true);
 
-  console.log('Header render');
-
   const handlelogin = () =>{
     setLogged(!logged)
   }
 
  useEffect(()=>{
-   console.log('useEffect called');
+  //  console.log('useEffect called');
  },[logged])
 
 
