@@ -2,11 +2,21 @@ import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 import RestaurantCategory from './RestaurantCategory';
+import { useState } from 'react';
 
 const RestaurantMenu = () => {
   const {resId}  = useParams();
 
   const restaurantInfo = useRestaurantMenu(resId);
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    if (openIndex === index) {
+      setOpenIndex(null); 
+    } else {
+      setOpenIndex(index); 
+    }
+  };
 
   if (!restaurantInfo || !restaurantInfo?.cards?.[2]?.card?.card?.info) {
     return <Shimmer />;
@@ -26,8 +36,11 @@ const RestaurantMenu = () => {
     <div className="text-center">
       <h1 className='font-bold my-6 text-2xl'>{name}</h1>
       <p className='font-semibold text-lg'>{cuisines.join(", ")} - {costForTwoMessage}</p>
-      {catogarie.map((cat)=>(
-        <RestaurantCategory key={cat?.card?.card.title} data={cat?.card?.card}/>
+      {catogarie.map((cat,index)=>(
+        //Controlled Componenet
+        <RestaurantCategory key={cat?.card?.card.title} data={cat?.card?.card} showItems={index === openIndex}
+          setShowIndex={()=>toggleAccordion(index)}
+        />
       ))}
     </div>
   );
