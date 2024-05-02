@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../utils/useRestaurantList";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const onlineStatus = useOnlineStatus();
   const listofRestaurants = useRestaurantList();
@@ -51,6 +51,8 @@ const Body = () => {
     );
   }
 
+  const {loggedInUser,setUserName} = useContext(UserContext);
+
   return (
     <>
       <div className="body">
@@ -72,6 +74,10 @@ const Body = () => {
           <button className="px-4 py-2 bg-gray-100 m-4 rounded-lg" onClick={() => handlefilter()}>
             Top Rated Restaurant
           </button>
+          <div>
+          <label className="pl-6">UserName : </label>
+          <input type="text" className="border border-black mr-3 p-2" onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}/>
+          </div>
         </div>
         <div className="res-container flex items-center flex-wrap">
           {searchfilterData.map((item) => (

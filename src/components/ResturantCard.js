@@ -1,6 +1,7 @@
 import { CDN_URL } from "../utils/constant";
 const ResturantCard = ({resdata}) =>{
   const { info: { cloudinaryImageId, name, cuisines, costForTwo, avgRating, sla: { deliveryTime } = {} } = {} } = resdata;
+
   return (
     <>
       <div className="res-card m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-300">

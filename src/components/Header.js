@@ -1,6 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect , UserContext, useContext} from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 const Header = () =>{
   const[logged,setLogged] = useState(true);
 
@@ -11,6 +12,8 @@ const Header = () =>{
  useEffect(()=>{
   //  console.log('useEffect called');
  },[logged])
+
+ const data = useContext(UserContext);
 
 
   return (
@@ -25,7 +28,7 @@ const Header = () =>{
                <li className="px-4"><Link to="/about">About Us</Link></li>
                <li className="px-4"><Link to="/contact">Contact Us</Link></li>
                <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-               <li className="px-4">Cart</li>
+               <li className="px-4 font-semibold">{data.loggedInUser}</li>
                <button className="login" onClick={()=>handlelogin()}>{logged == true ? 'Login': 'Logout'}</button>
              </ul>
          </div>
