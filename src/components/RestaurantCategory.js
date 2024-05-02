@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data,showItems,setShowIndex }) => {
+const RestaurantCategory = ({ data,showItems,setShowIndex,dummy }) => {
   const { title, itemCards } = data;
   const handleClick = () =>{
      setShowIndex();
@@ -16,7 +16,7 @@ const RestaurantCategory = ({ data,showItems,setShowIndex }) => {
           </span>
           <span className="cursor-pointer">⬇️</span>
         </div>
-       {showItems == true && <ItemList items={itemCards} /> }
+       {showItems == true && <ItemList items={itemCards} dummy={dummy} /> }
       </div>
     </div>
   );

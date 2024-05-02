@@ -5,6 +5,7 @@ import RestaurantCategory from './RestaurantCategory';
 import { useState } from 'react';
 
 const RestaurantMenu = () => {
+  const dummyData = "Dummy Data";
   const {resId}  = useParams();
 
   const restaurantInfo = useRestaurantMenu(resId);
@@ -40,6 +41,7 @@ const RestaurantMenu = () => {
         //Controlled Componenet
         <RestaurantCategory key={cat?.card?.card.title} data={cat?.card?.card} showItems={index === openIndex}
           setShowIndex={()=>toggleAccordion(index)}
+          dummy={dummyData}
         />
       ))}
     </div>
