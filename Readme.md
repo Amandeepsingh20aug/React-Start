@@ -51,3 +51,12 @@ export const Component; import {Component} from "path";
 # 2 types of Routing in web apps
 - Client side Routing
 - Server side Routing
+
+# Redux ToolKit
+- Install @reduxjs/toolkit ans react-redux
+- Build our Store
+- Connect our store to app
+- Slice (CartSlice)
+- dispatch(action)
+- Selector
+

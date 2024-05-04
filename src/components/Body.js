@@ -9,6 +9,8 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   const listofRestaurants = useRestaurantList();
 
+  const {loggedInUser,setUserName} = useContext(UserContext);
+
   const [searchText, setSearchText] = useState("");
 
   const [searchfilterData, setSearchfilterData] = useState([]);
@@ -51,7 +53,7 @@ const Body = () => {
     );
   }
 
-  const {loggedInUser,setUserName} = useContext(UserContext);
+  
 
   return (
     <>

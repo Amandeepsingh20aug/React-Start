@@ -2,6 +2,7 @@ import React, { useState,useEffect , UserContext, useContext} from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Header = () =>{
   const[logged,setLogged] = useState(true);
 
@@ -14,6 +15,10 @@ const Header = () =>{
  },[logged])
 
  const data = useContext(UserContext);
+
+ //Selector
+ // Subscribing to the store
+ const cartItems = useSelector((store)=> store.cart.items)
 
 
   return (
@@ -28,6 +33,7 @@ const Header = () =>{
                <li className="px-4"><Link to="/about">About Us</Link></li>
                <li className="px-4"><Link to="/contact">Contact Us</Link></li>
                <li className="px-4"><Link to="/grocery">Grocery</Link></li>
+               <li className="px-4 font-bold text-xl"><Link to="/cart">Cart - ({cartItems.length} Items)</Link></li>
                <li className="px-4 font-semibold">{data.loggedInUser}</li>
                <button className="login" onClick={()=>handlelogin()}>{logged == true ? 'Login': 'Logout'}</button>
              </ul>
