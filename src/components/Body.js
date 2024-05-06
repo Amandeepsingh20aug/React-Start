@@ -64,6 +64,7 @@ const Body = () => {
               type="text"
               className="border border-solid border-black"
               value={searchText}
+              data-testid = "Search"
               onChange={handleChange}
             />
             <button

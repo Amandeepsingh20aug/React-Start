@@ -60,3 +60,19 @@ export const Component; import {Component} from "path";
 - dispatch(action)
 - Selector
 
+# Types of testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing - e2e testing
+
+# Setting up Testing in our App
+- Install React tseting Library
+- Install Jest
+- Intalled Bable dependencies
+- Configure Babel
+- Configure Parcel Config file to Disable default bable transpilation
+- Jest Configration (npx jest --init)
+- Install JsDom library
+- Intall @babel/preset-react - to make JSX work in test Case
+- Include @babel/preset-react inside my babel config
+- npm i -D @testing-library/jest-dom
