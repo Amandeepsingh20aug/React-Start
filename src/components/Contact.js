@@ -66,8 +66,8 @@ const Contact = () => {
               className="p-3 rounded-lg outline-none"
             />
           </div>
-          <div className="flex justify-center flex-row w-1/2 my-5 items-center">
-            <label className="text-center mx-2 text-lg font-semibold">
+          <div className="flex justify-start flex-row w-1/2 my-5 items-center">
+            <label className="text-center text-lg font-semibold">
               Male
             </label>
             <input
@@ -77,8 +77,9 @@ const Contact = () => {
               value="Male"
               checked={gender === "Male"}
               onChange={handleChange}
+              className="mx-2"
             />
-            <label className="text-center mx-2 text-lg font-semibold">
+            <label className="text-center text-lg font-semibold">
               Female
             </label>
             <input
@@ -88,8 +89,9 @@ const Contact = () => {
               value="Female"
               checked={gender === "Female"}
               onChange={handleChange}
+              className="mx-2"
             />
-            <label className="text-center mx-2 text-lg font-semibold">
+            <label className="text-center text-lg font-semibold">
               other
             </label>
             <input
@@ -99,14 +101,15 @@ const Contact = () => {
               value="Other"
               checked={gender === "Other"}
               onChange={handleChange}
+              className="mx-2"
             />
           </div>
-          <div className="flex justify-center flex-row items-center w-1/2">
+          <div className="flex justify-start flex-row items-center w-1/2 my-3">
             <input type="checkbox" name="agree"  checked={agree} 
               onChange={handleAgree}/>
             <p>Agree to terms and Condition</p>
           </div>
-          <div className="flex justify-center flex-row items-center w-1/4">
+          <div className="flex justify-center flex-row items-center w-1/4 my-3">
           <button className="text-white bg-black text-lg p-2 rounded-lg" onClick={handleSubmit}>Submit</button>
           </div>
         </form>
